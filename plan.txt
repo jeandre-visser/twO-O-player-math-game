@@ -14,7 +14,7 @@ Question Class
 "What does num1 plus num2 equal?"
 
 Game Class
-- define a method that starts the game with the players
+- define a method that begins the game with the players
 - create a new question that is asked to Player 1
 - prompt the player to answer
 - add if statement for correct and incorrect answer
