@@ -1,30 +1,62 @@
 class Game
-  def begin(players)
-    puts "-----NEW TURN-----"
-    qs = Question.new 
-    puts "#{players[0].player_long}: #{qs.nxt_question}"
-    print ">"
-    answer = stdin.gets.chomp
+  # Create two new players
+  def initialize
+    @play1 = Player.new(1)
+    @play2 = Player.new(2)
+    # Start with player1
+    @current = @play1
+  end
 
-    # Determine if player answer was correct
-    if answer.to_i == qs.num1 + qs.num2
-      puts "#{players[0].player_long}: YES! You are correct."
-    else 
-      players[0].losing_score
-      puts "#{players[0].player_long}: Seriously? No!"
+  def start 
+    puts "-----Welcome to the Multiplayer Math Game, enjoy!"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    nxt_player_turn
+  end
+
+  def nxt_player_turn
+    player_turn = PlayerTurn.new(@current.id)
+    answer = player_turn.show_qs
+
+    if answer == false
+      @current.losing_score
     end
 
-    # Determine score of each player
-    if players[0].score == 0
-      puts "#{players[1].player_long} wins with a score of #{players[1].final_score} \n----- GAME OVER -----\nGood Bye!"
+    score
+
+    if @current.player_score == 0
+      game_over
     else
-      # Reverse player 1 and player 2 in the players array and continue with the game
-      players.reverse!
-      # Show the score
-      "#{players[1].player_short}: #{players[1].final_score} vs #{players[0].player_short}: #{players[0].final_score}"
-      
-      # Begin a new question
-      begin(players)
+      switch
+      puts "\n----- NEW TURN -----"
+      nxt_player_turn
     end
   end
+
+  def score
+    puts "P1: #{@play1.player_score}/3 vs P2: #{@play2.player_score}/3"
+  end
+
+  def switch
+    if @current == @play1
+      @current = @play2
+    else
+      @current = @play1
+    end
+  end
+
+  def game_over
+    switch
+    puts "Player #{@current.id} wins with a score of #{@current.player_score}/3 \n----- GAME OVER -----\nGood Bye!"
+
+
+  end
+
 end
+
+
+
+
+
+
+
+
