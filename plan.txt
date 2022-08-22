@@ -1,0 +1,23 @@
+Classes: Game, Question, Player
+
+Player Class
+- denote a number of players variable to 0
+- create initializer that increments the number of players variable
+- add states: Player 1 (long version), P1 short version, and the score which is out of 3
+- define a losing score method that increments the score down if the player loses a point
+- define a final score method when the game is over
+- add getter and setter attributes for the states
+
+Question Class
+- define initializer with num1 and num2 states that generate a random number between 1 and 20
+- define a method that outputs the two random number in the sentence
+"What does num1 plus num2 equal?"
+
+Game Class
+- define a method that starts the game with the players
+- create a new question that is asked to Player 1
+- prompt the player to answer
+- add if statement for correct and incorrect answer
+- add if statement if player 1 has a score of zero making player 2 the winner and vise vera; if neither player score is zero then just state the scores and ask the next player a question
+
+**Require all three classes in a main.rb file**
