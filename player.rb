@@ -10,5 +10,13 @@ class Player
   
   attr_reader :player_long, :player_short, :player_score
 
-  
+  def losing_score
+    @player_score -= 1
+  end
+
+  def final_score
+    "#{player_score}/3"
+  end
+
+  attr_writer :player_long, :player_short, :player_score
 end
