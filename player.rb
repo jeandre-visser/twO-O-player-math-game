@@ -1,7 +1,9 @@
+require "pry"
+
 class Player
   @@num_of_player = 0
 
-  def initializer
+  def initialize
     @@num_of_player += 1
     @player_long = "Player #{@@num_of_player}"
     @player_short = "P#{@@num_of_player}"

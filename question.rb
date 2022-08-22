@@ -1,5 +1,5 @@
 class Question
-  def initializer
+  def initialize
     @num1 = rand(21)
     @num2 = rand(21)
   end
@@ -13,4 +13,3 @@ end
 
 qs1 = Question.new
 puts qs1.nxt_question
-puts qs1.num1
