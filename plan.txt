@@ -9,7 +9,7 @@ Player Class
 - add getter and setter attributes for the states
 
 Question Class
-- define initializer with num1 and num2 states that generate a random number between 1 and 20
+- define initializer with num1 and num2 states that generate a random number from 1 to 20
 - define a method that outputs the two random number in the sentence
 "What does num1 plus num2 equal?"
 
